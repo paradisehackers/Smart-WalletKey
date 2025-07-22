@@ -7,7 +7,7 @@ function HistoryPage({ user, activeWallet }) {
 
   useEffect(() => {
     if (user) {
-      fetch(`http://localhost:3000/api/users/${user._id}/transactions`)
+      fetch(`https://smart-walletkey-api.onrender.com/api/users/${user._id}/transactions`)
         .then(response => response.json())
         .then(data => {
           setHistory(data);

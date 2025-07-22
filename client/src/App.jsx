@@ -20,7 +20,7 @@ function App() {
   const navigate = useNavigate();
 
   const fetchUsers = () => {
-    fetch('http://localhost:3000/api/users')
+    fetch('https://smart-walletkey-api.onrender.com/api/users')
       .then(response => response.json())
       .then(data => setUsers(data))
       .catch(error => console.error('Error fetching users:', error));
@@ -36,7 +36,7 @@ function App() {
         walletAddress: wallet.address,
         encryptedPrivateKey: encryptedPrivateKey,
       };
-      const response = await fetch('http://localhost:3000/api/users', {
+      const response = await fetch('https://smart-walletkey-api.onrender.com/api/users', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newUser),
@@ -55,7 +55,7 @@ function App() {
 
   const handleLogin = async (username, password) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/users/${username}`);
+      const response = await fetch(`https://smart-walletkey-api.onrender.com/api/users/${username}`);
       if (!response.ok) throw new Error('User not found');
       const user = await response.json();
       const decryptedWallet = await ethers.Wallet.fromEncryptedJson(user.encryptedPrivateKey, password);
@@ -78,7 +78,7 @@ function App() {
         throw new Error("Recovery phrase does not match the wallet for this username.");
       }
       const newEncryptedPrivateKey = await wallet.encrypt(newPassword);
-      await fetch('http://localhost:3000/api/users/reset-password-with-key', {
+      await fetch('https://smart-walletkey-api.onrender.com/api/users/reset-password-with-key', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

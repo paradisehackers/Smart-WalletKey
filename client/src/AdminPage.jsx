@@ -5,7 +5,7 @@ function AdminPage() { // Renamed from ActivityPage
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:3000/api/users')
+    fetch('https://smart-walletkey-api.onrender.com/api/users')
       .then(response => response.json())
       .then(data => {
         setAllUsers(data);

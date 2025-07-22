@@ -1,15 +1,13 @@
-//2912dcefad9c3fabb16f2cacc3fbdd04
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { ethers } from 'ethers';
 import './DashboardLayout.css';
 import { Core } from '@walletconnect/core';
 import { Web3Wallet } from '@walletconnect/web3wallet';
-// --- CORRECTED: Added the missing import ---
 import { buildApprovedNamespaces } from '@walletconnect/utils';
 import { getSdkError } from '@walletconnect/utils';
 
-const WC_PROJECT_ID = '2912dcefad9c3fabb16f2cacc3fbdd04';
+const WC_PROJECT_ID = import.meta.env.VITE_WC_PROJECT_ID;
 const BLOCKDAG_RPC_URL = 'https://rpc.primordial.bdagscan.com';
 const BLOCKDAG_CHAIN_ID = 1043;
 
@@ -71,7 +69,7 @@ function DashboardPage({ activeWallet, user, setActiveWallet }) {
           setBalance(ethers.formatEther(balanceWei));
 
           // Fetch history
-          const historyRes = await fetch(`http://localhost:3000/api/users/${user._id}/transactions`);
+          const historyRes = await fetch(`https://smart-walletkey-api.onrender.com/api/users/${user._id}/transactions`);
           const historyData = await historyRes.json();
           setHistory(historyData);
 
@@ -137,7 +135,7 @@ function DashboardPage({ activeWallet, user, setActiveWallet }) {
   const fetchHistory = async () => {
     if (user) {
       try {
-        const response = await fetch(`http://localhost:3000/api/users/${user._id}/transactions`);
+        const response = await fetch(`https://smart-walletkey-api.onrender.com/api/users/${user._id}/transactions`);
         const data = await response.json();
         setHistory(data);
       } catch (error) {
@@ -280,7 +278,7 @@ function DashboardPage({ activeWallet, user, setActiveWallet }) {
         gasUsed: ethers.formatEther(receipt.gasUsed * receipt.gasPrice), // Calculate Txn Fee
       };
 
-      await fetch('http://localhost:3000/api/transactions', {
+      await fetch('https://smart-walletkey-api.onrender.com/api/transactions', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(txToSave),
