@@ -1,0 +1,21 @@
+{
+  "name": "mandodb",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "argon2": "^0.43.1",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "express": "^5.1.0",
+    "mongodb": "^6.17.0",
+    "mongoose": "^8.16.4",
+    "react-router-dom": "^7.7.0"
+  }
+}

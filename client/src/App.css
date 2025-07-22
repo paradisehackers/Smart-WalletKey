@@ -1,0 +1,5 @@
+/* App.css */
+.app-content {
+  /* This padding pushes the content down so it's not hidden by the fixed header */
+  padding-top: 72px; 
+}
