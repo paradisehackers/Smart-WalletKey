@@ -2,8 +2,6 @@
 A user-friendly smart wallet for the BlockDAG Hackathon with dApp connectivity and a secure recovery phrase system.
 
 
-# SmartKey Wallet
-
 ## Project Overview & Purpose
 SmartKey Wallet is a user-friendly, non-custodial smart wallet designed to simplify the Web3 experience for new users. It removes common barriers like seed phrases by offering a secure username/password system with an 18-word recovery phrase, while providing core Web3 functionalities like dApp connectivity and smart contract interaction on the BlockDAG network.
 
