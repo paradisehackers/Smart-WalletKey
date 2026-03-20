@@ -12,7 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 // Make sure to use your real password here
-const uri = "mongodb+srv://heavenly:xmSn1jt1OqANz0eh@walletx.p12gnkn.mongodb.net/myDatabaseName?retryWrites=true&w=majority&appName=Walletx";
+// const uri =;
 
 mongoose.connect(uri)
   .then(() => console.log("✅ MongoDB Connected..."))
